@@ -16,7 +16,7 @@ class TestCommand(TestCase):
         self.assertEqual(command.age, "18")
         self.assertEqual(command.employed, False)
 
-    def Test_view_all_info(self):
+    def test_view_all_info(self):
         infos_data = [
             {
                 "name": "Chris",
@@ -132,7 +132,7 @@ class TestCommand(TestCase):
         models.update_info("tanner","number1capper",True)
         self.assertEqual(models.command.objects.first().name,"tanner")
 
-    def Test_delete_info(self):
+    def test_delete_info(self):
         infos_data = [
             {
                 "name": "Chris",
@@ -162,6 +162,6 @@ class TestCommand(TestCase):
                 info["employed"],
             )
 
-        models.delete_contact("chris")
+        models.delete_info("Chris")
 
         self.assertEqual(len(models.view_all_info()),2)
